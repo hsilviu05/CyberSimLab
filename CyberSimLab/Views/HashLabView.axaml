@@ -1,0 +1,53 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:viewmodels="clr-namespace:CyberSimLab.ViewModels"
+             x:Class="CyberSimLab.Views.HashLabView"
+             mc:Ignorable="d">
+    <UserControl.Styles>
+        <FluentTheme />
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="#00FFF7" />
+            <Setter Property="FontFamily" Value="Segoe UI, Arial, sans-serif" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="Background" Value="#1A1A2E" />
+            <Setter Property="Foreground" Value="#00FFF7" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+        <Style Selector="TextBox, ComboBox">
+            <Setter Property="Background" Value="#232946" />
+            <Setter Property="Foreground" Value="#00FFF7" />
+            <Setter Property="BorderBrush" Value="#00FFF7" />
+            <Setter Property="CornerRadius" Value="8" />
+        </Style>
+    </UserControl.Styles>
+    <UserControl.DataContext>
+        <viewmodels:HashLabViewModel />
+    </UserControl.DataContext>
+    <Border Background="#181A2A" CornerRadius="18" BoxShadow="0 0 32 8 #00FFF7" Padding="32">
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto">
+            <TextBlock Text="Hashing Laboratory"
+                       FontSize="32"
+                       FontWeight="Bold"
+                       FontFamily="Segoe UI, Arial, sans-serif"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,24"
+                       Grid.Row="0" />
+            <TextBox Watermark="Enter text to hash..." Grid.Row="1" Margin="0,0,0,12" Text="{Binding InputText, Mode=TwoWay}" />
+            <ComboBox Grid.Row="2" Margin="0,0,0,12" SelectedIndex="{Binding SelectedAlgorithmIndex, Mode=TwoWay}">
+                <ComboBoxItem Content="SHA-256" />
+                <ComboBoxItem Content="SHA-1" />
+                <ComboBoxItem Content="MD5" />
+            </ComboBox>
+            <StackPanel Orientation="Horizontal" Grid.Row="3" VerticalAlignment="Center" Margin="0,0,0,12">
+                <TextBlock Text="Hash:" FontWeight="Bold" VerticalAlignment="Center" />
+                <TextBox Text="{Binding HashResult}" IsReadOnly="True" Margin="12,0,0,0" Width="420" />
+                <Button Content="Copy" Margin="12,0,0,0" Click="CopyButton_Click" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</UserControl>

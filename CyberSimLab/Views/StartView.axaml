@@ -1,0 +1,28 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="CyberSimLab.Views.StartView">
+    <UserControl.Styles>
+        <FluentTheme />
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="#00FFF7" />
+            <Setter Property="FontFamily" Value="Segoe UI, Arial, sans-serif" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="Background" Value="#1A1A2E" />
+            <Setter Property="Foreground" Value="#00FFF7" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+    </UserControl.Styles>
+    <Grid>
+        <Border Background="#181A2A" CornerRadius="18" BoxShadow="0 0 32 8 #00FFF7" Padding="32" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Spacing="18">
+                <TextBlock Text="CyberSimLab" FontSize="36" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock Text="Created by Hermeneanu Ionut Silviu" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+                <TextBlock Text="A modern, interactive cybersecurity simulator." FontSize="16" HorizontalAlignment="Center"/>
+                <Button Content="Enter Dexter's Lab" Width="180" Height="40" Margin="0,24,0,0" HorizontalAlignment="Center" Click="EnterLab_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl> 

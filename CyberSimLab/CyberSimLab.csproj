@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="11.0.5" />
+    <PackageReference Include="Avalonia.Desktop" Version="11.0.5" />
+    <PackageReference Include="Avalonia.Themes.Fluent" Version="11.0.5" />
+    <PackageReference Include="ReactiveUI" Version="18.4.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Include="Views\MainWindow.axaml" />
+    <Page Include="Views\BruteForceView.axaml" />
+    <Page Include="Views\HashLabView.axaml" />
+  </ItemGroup>
+
+</Project>

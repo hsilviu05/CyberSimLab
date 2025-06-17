@@ -1,0 +1,72 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:viewmodels="clr-namespace:CyberSimLab.ViewModels"
+             x:Class="CyberSimLab.Views.BruteForceView">
+    <UserControl.Styles>
+        <FluentTheme />
+        <Style Selector="TextBlock">
+            <Setter Property="Foreground" Value="#00FFF7" />
+            <Setter Property="FontFamily" Value="Segoe UI, Arial, sans-serif" />
+        </Style>
+        <Style Selector="Button">
+            <Setter Property="Background" Value="#1A1A2E" />
+            <Setter Property="Foreground" Value="#00FFF7" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="FontSize" Value="18" />
+        </Style>
+        <Style Selector="TextBox">
+            <Setter Property="Background" Value="#232946" />
+            <Setter Property="Foreground" Value="#00FFF7" />
+            <Setter Property="BorderBrush" Value="#00FFF7" />
+            <Setter Property="CornerRadius" Value="8" />
+        </Style>
+        <Style Selector="ProgressBar">
+            <Setter Property="Background" Value="#232946" />
+            <Setter Property="Foreground" Value="#00FFF7" />
+            <Setter Property="BorderBrush" Value="#00FFF7" />
+            <Setter Property="CornerRadius" Value="8" />
+            <Setter Property="Height" Value="28" />
+        </Style>
+    </UserControl.Styles>
+    <UserControl.DataContext>
+        <viewmodels:BruteForceViewModel />
+    </UserControl.DataContext>
+    <Border Background="#181A2A" CornerRadius="18" BoxShadow="0 0 32 8 #00FFF7" Padding="32">
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto,Auto" >
+            <TextBlock Text="Brute Force Attack Simulator"
+                       FontSize="32"
+                       FontWeight="Bold"
+                       FontFamily="Segoe UI, Arial, sans-serif"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,24"
+                       Grid.Row="0"/>
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Margin="0,0,0,12">
+                <TextBlock Text="Password:" VerticalAlignment="Center" FontWeight="Bold"/>
+                <TextBox Width="200" Margin="12,0,0,0" Text="{Binding TargetPassword, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="0,0,0,12">
+                <TextBlock Text="Allowed Characters:" VerticalAlignment="Center" FontWeight="Bold"/>
+                <TextBox Width="280" Margin="12,0,0,0" Text="{Binding AllowedCharacters, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="3" Margin="0,0,0,12">
+                <TextBlock Text="Password Length:" VerticalAlignment="Center" FontWeight="Bold"/>
+                <TextBox Width="100" Margin="12,0,0,0" Text="{Binding PasswordLength, Mode=TwoWay}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="4" Margin="0,0,0,12" Spacing="12">
+                <Button Content="▶ Start" Command="{Binding StartCommand}" IsEnabled="{Binding CanStart}" />
+                <Button Content="■ Stop" Command="{Binding StopCommand}" IsEnabled="{Binding IsRunning}" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="5" Margin="0,0,0,12">
+                <TextBlock Text="Current Guess:" VerticalAlignment="Center" FontWeight="Bold"/>
+                <TextBox Width="260" Margin="12,0,0,0" Text="{Binding CurrentGuess}" IsReadOnly="True" />
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Grid.Row="6" Margin="0,0,0,12">
+                <TextBlock Text="Elapsed Time:" VerticalAlignment="Center" FontWeight="Bold"/>
+                <TextBlock Margin="12,0,0,0" Text="{Binding ElapsedTime}" FontWeight="Bold" />
+            </StackPanel>
+            <ProgressBar Grid.Row="7" Minimum="0" Maximum="1" Value="{Binding Progress}" Margin="0,0,0,12" />
+            <TextBlock Grid.Row="8" Text="{Binding Status}" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,16,0,0" FontSize="20" />
+        </Grid>
+    </Border>
+</UserControl>
